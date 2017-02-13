@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @author && @author.name %></h2>
+
+<div id="messages" data-channel="messages" data-user-id="<%= @user && @user.id %>">
+  <%= render @messages %>
+</div>
+
+<br>
+
+<%= render 'form', message: @message %>

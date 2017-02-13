@@ -1,0 +1,43 @@
+<%= form_for(message, remote: true) do |f| %>
+  <% if message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% message.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @user.nil? %>
+    <div class="field">
+      <%= f.label :user_id %>
+      <%= f.collection_select(:user_id, User.all, :id, :name) %>
+    </div>
+  <% else %>
+    <%= f.hidden_field :user_id %>
+  <% end %>
+
+  <% if @author.try(:kind) == "Service Rep" %>
+    <div class="field">
+      <%= f.label :author_id %>
+      <%= f.collection_select(:author_id, User.where(kind: "Service Rep").all, :id, :name) %>
+    </div>
+  <% else %>
+    <%= f.hidden_field :author_id %>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content, "Type a new message" %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <button id="button-smile"><i class="fa fa-smile-o" aria-hidden="true"></i></button>
+    <button id="button-file"><i class="fa fa-file-text" aria-hidden="true"></i></button>
+    <button id="button-image"><i class="fa fa-file-image-o" aria-hidden="true"></i></button>
+    <%= f.submit "Send" %>
+  </div>
+<% end %>
