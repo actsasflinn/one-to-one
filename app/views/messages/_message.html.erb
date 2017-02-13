@@ -10,5 +10,8 @@
   <% if message.author.kind != "Customer" %>
     <span class="author_kind">(<%= message.author.kind %>)</span>
   <% end %>
+  <%= time_tag message.created_at do %>
+    <span class="timestamp" data-timestamp="<%= message.created_at.to_i * 1000 %>"><%= time_ago_in_words message.created_at %></span>
+  <% end %>
   <blockquote><%= message.content %></blockquote>
 </div>

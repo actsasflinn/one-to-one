@@ -8,5 +8,6 @@ App.user = App.cable.subscriptions.create "UserChannel",
 
   received: (data) ->
     $('#messages').append data['message']
+    update_timestamps()
     element = document.getElementById("messages")
     element.scrollTop = element.scrollHeight
