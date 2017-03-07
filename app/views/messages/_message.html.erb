@@ -13,5 +13,5 @@
   <%= time_tag message.created_at do %>
     <span class="timestamp" data-timestamp="<%= message.created_at.to_i * 1000 %>"><%= time_ago_in_words message.created_at %></span>
   <% end %>
-  <blockquote><%= message.content %></blockquote>
+  <blockquote><%= message.content %><% if message.file? %><%= link_to message.file_identifier, message.file_url, :target => "_blank" %><% end %></blockquote>
 </div>

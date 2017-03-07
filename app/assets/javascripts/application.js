@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require dropzone
 
 // https://gist.github.com/deadkarma/1989808
 var DateHelper = {
