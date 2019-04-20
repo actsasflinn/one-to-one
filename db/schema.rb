@@ -10,23 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305140046) do
+ActiveRecord::Schema.define(version: 2017_03_05_140046) do
 
   create_table "messages", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "content"
-    t.string   "status"
+    t.integer "user_id"
+    t.string "content"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "author_id"
-    t.string   "file"
+    t.integer "author_id"
+    t.string "file"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "name"
-    t.string   "kind"
-    t.string   "icon"
+    t.string "email"
+    t.string "name"
+    t.string "kind"
+    t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
